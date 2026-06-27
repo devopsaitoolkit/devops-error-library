@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/devopsaitoolkit/devops-error-library/blob/main/CONTRIBUTING.md
+    about: How to add or improve an error document.
+  - name: DevOps troubleshooting guides
+    url: https://devopsaitoolkit.com/blog
+    about: Long-form tutorials and troubleshooting walkthroughs.

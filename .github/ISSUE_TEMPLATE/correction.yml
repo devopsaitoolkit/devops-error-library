@@ -1,0 +1,24 @@
+name: "🛠 Correction or improvement"
+description: "Fix or improve an existing error document."
+title: "[fix] <error slug>"
+labels: ["correction"]
+body:
+  - type: input
+    id: slug
+    attributes:
+      label: Error slug / path
+      description: e.g. errors/kubernetes/kubernetes-crashloopbackoff.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing
+      description: Be specific — an inaccurate cause, a wrong command, a missing fix, an outdated reference.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Docs links, a reproduction, or the corrected command/output.

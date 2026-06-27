@@ -1,0 +1,71 @@
+name: "📄 New error document"
+description: "Propose a new error to add to the library."
+title: "[error] <Technology> <Short Error Name>"
+labels: ["new-error"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Error title
+      description: SEO-friendly, e.g. "Kubernetes CrashLoopBackOff" or "OpenStack NoValidHost".
+      placeholder: Technology Short Error Name
+    validations:
+      required: true
+  - type: dropdown
+    id: technology
+    attributes:
+      label: Technology
+      options:
+        - kubernetes
+        - docker
+        - terraform
+        - openstack
+        - linux
+        - gitlab
+        - ansible
+        - prometheus
+        - grafana
+        - rabbitmq
+        - redis
+        - postgresql
+        - mysql
+        - ceph
+        - linstor
+        - nginx
+        - apache
+        - vmware
+        - aws
+        - azure
+        - gcp
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: Exact error message
+      description: The verbatim log line or CLI error (the thing engineers paste into a search box).
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [info, low, medium, high, critical]
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: What you know
+      description: Root causes, diagnostic commands, fixes — anything to seed the page. A real production log snippet is gold.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched and this error is not already documented.
+          required: true
+        - label: The information is accurate and based on real systems (no fabricated logs).
+          required: true

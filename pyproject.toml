@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "devops-error-library"
+version = "0.1.0"
+description = "The open-source knowledge base of real DevOps, Cloud, Kubernetes, Docker, Terraform and OpenStack errors — with a fast local search tool."
+readme = "README.md"
+license = { text = "CC-BY-4.0" }
+requires-python = ">=3.10"
+authors = [{ name = "DevOps Error Library contributors" }]
+keywords = [
+    "devops", "sre", "troubleshooting", "errors", "kubernetes", "docker",
+    "terraform", "openstack", "linux", "incident-response", "knowledge-base",
+]
+dependencies = ["pyyaml>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+errlib = "errlib.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/devopsaitoolkit/devops-error-library"
+Guides = "https://devopsaitoolkit.com/blog"
+
+[tool.hatch.build.targets.wheel]
+packages = ["errlib"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
